@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="TAG:Tangential Amplifying Guidance for Hallucination-Resistant Diffusion Sampling.">
+  <meta name="keywords" content="Diffusion Guidance, Efficient Guidance, Diffusion Model">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TAG: Tangential Amplifying Guidance for Hallucination-Resistant Diffusion Sampling</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HQ528NM6VE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-HQ528NM6VE');
+  </script>
+
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">TAG: Tangential Amplifying Guidance for Hallucination-Resistant Diffusion Sampling</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://github.com/hyeon-cho">Hyunmin Cho</a><sup>1,*</sup>,</span>
+            <span class="author-block">
+              <a href="https://sunovivid.github.io/">Donghoon Ahn</a><sup>2,*</sup>,</span>
+            <span class="author-block">
+              <a href="https://susunghong.github.io/">Susung Hong</a><sup>3,*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://github.com/jeeeun-k">Jee Eun Kim</a><sup>1</sup>,
+            </span>
+            <br> <span class="author-block">
+              <a href="https://cvlab.kaist.ac.kr/">Seungryong Kim</a><sup>4,†</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://ipa.korea.ac.kr/">Kyong Hwan Jin</a><sup>1,†</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Korea University,</span>
+            <span class="author-block"><sup>2</sup>University of California, Berkeley,</span>
+            <span class="author-block"><sup>3</sup>University of Washington,</span>
+            <span class="author-block"><sup>4</sup>KAIST AI</span>
+            <br> <span class="author-block"><sup>*</sup>co-first authors, <sup>†</sup>corresponding authors</span>
+          </div>
+<br><br>
+<div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified bordered-box2">
+          <p>
+            Recent diffusion models achieve the state-of-the-art performance in image generation, but often suffer from semantic inconsistencies or hallucinations. While various inference-time guidance methods can enhance generation, they often operate indirectly by relying on external signals or architectural modifications, which introduces additional computational overhead.
+          </p>
+          <p>
+            In this paper, we propose <strong>T</strong>angential <strong>A</strong>mplifying <strong>G</strong>uidance <strong>(TAG)</strong>, a more efficient and direct guidance method that operates solely on trajectory signals without modifying the underlying diffusion model. TAG leverages an intermediate sample as a projection basis and amplifies the tangential components of the estimated scores with respect to this basis to correct the sampling trajectory. We formalize this guidance process by leveraging a first-order Taylor expansion, which demonstrates that amplifying the tangential component steers the state toward higher-probability regions, thereby reducing inconsistencies and enhancing sample quality.
+          </p>
+          <p>
+            TAG is a plug-and-play, architecture-agnostic module that improves diffusion sampling fidelity with minimal computational addition, offering a new perspective on diffusion guidance.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2510.04533"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/hyeon-cho"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <!-- <h2 class="subtitle has-text-centered">
+    <span class="tag is-large"><strong>Qualitative Results of image generation</strong></span>
+    </h2>
+    <img src="./asset/qualitative/teaser_qual.png" alt="A descriptive text for the image">
+    <br><br><br> -->
+    <div class="hero-body">
+      <h2 class="subtitle has-text-centered">
+        <span class="tag is-large"><strong>Conceptual Visualization of TAG</strong></span>
+        <br>While standard sampling produces hallucinations by drifting into low-probability areas, 
+        <strong>TAG</strong> steers the trajectory toward high-probability regions to ensure coherent results.
+      </h2>
+      <img id="teaser" src="./asset/fig1.png" alt="A descriptive text for the image">
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="subtitle has-text-centered">
+        <span class="tag is-large"><strong>What is implied by “Tangential”?</strong></span>
+        <br>The original update  \(\Delta_k:=\boldsymbol{x}_{k-1}-\boldsymbol{x}_{k}\)  contains a mix of structural information and noise. 
+        We decompose this update into a <strong> normal component \(P_{k}\Delta_k\)</strong> and a <strong>tangential component \(P^{\perp}_{k}\Delta_k\)</strong>.
+      </h2>
+      <img id="teaser" src="./asset/fig2.jpg" alt="A descriptive text for the image">
+      <h2>
+        <strong>\(\circ\)  Normal component</strong>(second row) is largely unstructured and noisy.
+        <br><strong>\(\circ\)  Tangential component</strong>(top row) clearly preserves the primary semantic structure of the image.
+      </h2> <br>
+      <h2 class="subtitle">
+          \(\implies\) By emphasizing the <strong>semantically rich tangential component</strong>, our method guides the model toward a higher-quality sample with significantly improved clarity and coherence.
+       </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <span class="tag is-large"><strong>Qualitative Results of Image Generation (Unconditional & Conditional)</strong></span>
+    <div class="container">
+      <div id="results-carousel" class="bordered-box">
+        <div>
+          <img src="asset/qualitative/teaser_qual.png">
+        </div>
+        <!-- <div>
+          <img src="asset/qualitative/sd15.png">
+        </div>
+        <div>
+          <img src="asset/qualitative/sd21.png">
+        </div>
+        <div>
+          <img src="asset/qualitative/sd3.png">
+        </div> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recent diffusion models achieve the state-of-the-art performance in image generation, but often suffer from semantic inconsistencies or hallucinations. While various inference-time guidance methods can enhance generation, they often operate indirectly by relying on external signals or architectural modifications, which introduces additional computational overhead.
+          </p>
+          <p>
+            In this paper, we propose <strong>T</strong>angential <strong>A</strong>mplifying <strong>G</strong>uidance <strong>(TAG)</strong>, a more efficient and direct guidance method that operates solely on trajectory signals without modifying the underlying diffusion model. TAG leverages an intermediate sample as a projection basis and amplifies the tangential components of the estimated scores with respect to this basis to correct the sampling trajectory. We formalize this guidance process by leveraging a first-order Taylor expansion, which demonstrates that amplifying the tangential component steers the state toward higher-probability regions, thereby reducing inconsistencies and enhancing sample quality.
+          </p>
+          <p>
+            TAG is a plug-and-play, architecture-agnostic module that improves diffusion sampling fidelity with minimal computational addition, offering a new perspective on diffusion guidance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- 
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Animation</h2>
+
+        <h3 class="title is-4">Interpolating states</h3>
+        <div class="content has-text-justified">
+          <p>
+            We can also animate the scene by interpolating the deformation latent codes of two input
+            frames. Use the slider here to linearly interpolate between the left frame and the right
+            frame.
+          </p>
+        </div>
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column is-3 has-text-centered">
+            <img src="./static/images/interpolate_start.jpg"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+            <p>Start Frame</p>
+          </div>
+          <div class="column interpolation-video-column">
+            <div id="interpolation-image-wrapper">
+              Loading...
+            </div>
+            <input class="slider is-fullwidth is-large is-info"
+                   id="interpolation-slider"
+                   step="1" min="0" max="100" value="0" type="range">
+          </div>
+          <div class="column is-3 has-text-centered">
+            <img src="./static/images/interpolate_end.jpg"
+                 class="interpolation-image"
+                 alt="Interpolation end reference image."/>
+            <p class="is-bold">End Frame</p>
+          </div>
+        </div>
+        <br/>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{cho2025tagtangentialamplifyingguidancehallucinationresistant,
+      title={TAG:Tangential Amplifying Guidance for Hallucination-Resistant Diffusion Sampling}, 
+      author={Hyunmin Cho and Donghoon Ahn and Susung Hong and Jee Eun Kim and Seungryong Kim and Kyong Hwan Jin},
+      year={2025},
+      eprint={2510.04533},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2510.04533}, 
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

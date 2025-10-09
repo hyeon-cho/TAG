@@ -183,9 +183,7 @@
     <main class="main-content">
 
         <div class="container">
-                        <div class="image-container">
                 <img id="teaser" src="./asset/qualitative/teaser_qual.png" alt="A descriptive text for the image">
-            </div>
             <div class="tldr">
                 <b>TL;DR</b>: We amplify the tangential part of each sampler update while keeping the radial term unchanged, steering trajectories along higher-density regions, resulting in higher-quality samples.
             </div>
@@ -200,21 +198,13 @@
             <h3>
                 Conceptual Visualization of TAG
             </h3>
-            <div class="image-container">
-                <div class="image-content">
                     <img id="teaser" src="./asset/fig1.png" alt="A descriptive text for the image"style="width:100%; max-width:980px; max-height:420px; height:auto; object-fit:contain; display:block; margin:0 auto;">
-                </div>
-            </div>
             <p class="paragraph"> While standard sampling produces <strong>hallucinations</strong> by drifting into low-probability areas, <strong>TAG</strong> guides the generation process toward high-probability regions, resulting in higher-quality samples.
             </p>
 
             <section id="motivation" class="section">
                 <h2>Motivation</h2>
-            <div class="image-container">
-                <div class="image-content">
-                    <img id="teaser" src="./asset/motivation.png" alt="A descriptive text for the image"style="width:100%; max-width:980px; max-height:420px; height:auto; object-fit:contain; display:block; margin:0 auto;">>
-                </div>
-            </div>
+                    <img id="teaser" src="./asset/motivation.png" alt="A descriptive text for the image"style="width:100%; max-width:980px; max-height:420px; height:auto; object-fit:contain; display:block; margin:0 auto;">
                 <p class="paragraph">
                     Our motivation stems from Tweedie's formula, which reveals that the score function, \(\Delta_x \log p(x\mid t_k)\), points toward high-probability data regions. Our goal is to emphasize this 'data term' without perturbing the scheduler's prescribed noise schedule.
                 </p>
@@ -231,14 +221,10 @@
                         </p>
                     </div>
                     <div class="col-right img">
-                        <div class="image-container">
-                            <div class="image-content">
                                 <img id="teaser" src="./asset/fig2.jpg" alt="A descriptive text for the image"style="width:100%; max-width:980px; max-height:420px; height:auto; object-fit:contain; display:block; margin:0 auto;">
                                 <p class="image-caption">
                                     Visualization of Normal \(P_{k}\Delta_k\) and Tangential \(P^{\perp}_{k}\Delta_k\) Components. Tangential components contains rich semantic informations.
                                 </p>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="two-col">
@@ -253,15 +239,10 @@ they often oversimplify the geometry or leave stray artifacts. In contrast, <sto
                         </p>
                     </div>
                     <div class="col-right img">
-                        <div class="image-container">
-                            <div class="image-content">
-                                <img src="./asset/fig3.png" class="img medium-image" alt="Comparisons diagram"style="width:100%; max-width:980px; max-height:420px; height:auto; object-fit:contain; display:block; margin:0 auto;">>
+                                <img src="./asset/fig3.png" class="img medium-image" alt="Comparisons diagram"style="width:100%; max-width:980px; max-height:420px; height:auto; object-fit:contain; display:block; margin:0 auto;">
                                 <p class="image-caption">
                                     Sampling on a 2D branching distribution (Karras et al., 2024) under different guidance methods. TAG effectively steers sampling trajectories toward high-density regions along the branches, suppressing off-manifold outliers to achieve the highest similarity to the ground truth distribution.
                                 </p>
-                            </div>
-                        <!-- <p class="image-caption">(e) Layer-wise alignment between visual tokens in MLLMs and vision encoder features measured by CKNNA, with shaded regions highlighting middle layers that are especially important for visual understanding. (f) Benchmark performance corresponding to (a–d) </p> -->
-                        </div>
                     </div>
                 </div>
             </section>
@@ -271,7 +252,7 @@ they often oversimplify the geometry or leave stray artifacts. In contrast, <sto
                 <p></p>
                 <div class="image-container">
                     <div class="image-content">
-                        <img src="asset/thm.png" class="img large-image" alt="Overall framework"style="width:100%; max-width:980px; max-height:420px; height:auto; object-fit:contain; display:block; margin:0 auto;">>
+                        <img src="asset/thm.png" class="img large-image" alt="Overall framework"style="width:100%; max-width:980px; max-height:420px; height:auto; object-fit:contain; display:block; margin:0 auto;">
                     </div>
                 </div>
                 <p>

@@ -39,27 +39,12 @@ This repository hosts the **project page** for TAG — a training-free, plug-and
 - **Interactive Demo**: https://huggingface.co/spaces/hyeoncho01/Tangential-Amplifying-Guidance
 - **Code**: https://github.com/hyeon-cho/Tangential-Amplifying-Guidance
 
-## Deploying
-
-The page is a single static `index.html` plus self-contained assets under `static/` (CSS, JS, fonts, images). **No build step is required** — push this directory to a GitHub repo, enable GitHub Pages on the branch, and it serves directly. A `.nojekyll` file is included so GitHub does not run Jekyll on the contents.
-
-```bash
-# preview locally
-python3 -m http.server 8000
-# then open http://localhost:8000
-```
-
-Only MathJax is loaded from a CDN (`cdn.jsdelivr.net`) since the full self-hosted bundle is ~50 MB; everything else (Bulma, FontAwesome, Academicons, jQuery, Inter font) is vendored under `static/`.
 
 ## BibTeX
 
 ```bibtex
-@inproceedings{cho2026tag,
-  title     = {TAG: Tangential Amplifying Guidance for Hallucination-Resistant Diffusion Sampling},
-  author    = {Cho, Hyunmin and Ahn, Donghoon and Hong, Susung and Kim, Jee Eun and Kim, Seungryong and Jin, Kyong Hwan},
-  booktitle = {Proceedings of the International Conference on Machine Learning (ICML)},
-  year      = {2026},
-  url       = {https://arxiv.org/abs/2510.04533}
+@inproceedings{
+   will be update
 }
 ```
 

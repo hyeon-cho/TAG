@@ -1,6 +1,6 @@
 # TAG: Tangential Amplifying Guidance
 
-> **TAG: Tangential Amplifying Guidance for Hallucination-Resistant Diffusion Sampling**
+> **TAG: Tangential Amplifying Guidance for Hallucination-Resistan Sampling**
 >
 > [Hyunmin Cho](https://github.com/hyeon-cho)<sup>1\*</sup>, [Donghoon Ahn](https://sunovivid.github.io/)<sup>2\*</sup>, [Susung Hong](https://susunghong.github.io/)<sup>3\*</sup>, [Jee Eun Kim](https://github.com/jeeeun-k)<sup>1</sup>, [Seungryong Kim](https://cvlab.kaist.ac.kr/)<sup>4†</sup>, [Kyong Hwan Jin](https://ipa.korea.ac.kr/)<sup>1†</sup>
 >

@@ -44,7 +44,12 @@ This repository hosts the **project page** for TAG — a training-free, plug-and
 
 ```bibtex
 @inproceedings{
-   will be update
+cho2026tag,
+title={{TAG}: Tangential Amplifying Guidance for Hallucination-Resistant Sampling},
+author={Hyunmin Cho and Donghoon Ahn and Susung Hong and Jee Eun Kim and Seungryong Kim and Kyong Hwan Jin},
+booktitle={Forty-third International Conference on Machine Learning},
+year={2026},
+url={https://openreview.net/forum?id=1XJqPy2LhA}
 }
 ```
 

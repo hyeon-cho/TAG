@@ -20,13 +20,15 @@
   <meta property="og:description"
     content="A training-free, plug-and-play diffusion guidance that amplifies the tangential score component, steering samples toward the data manifold.">
   <meta property="og:url" content="https://hyeon-cho.github.io/TAG/">
-  <meta property="og:image" content="https://hyeon-cho.github.io/TAG/static/images/TAG.jpg">
+  <meta property="og:image" content="https://hyeon-cho.github.io/TAG/static/images/TAG_teaser_og.jpg">
+  <meta property="og:image:width" content="1600">
+  <meta property="og:image:height" content="909">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="TAG: Tangential Amplifying Guidance">
   <meta name="twitter:description"
     content="A training-free, plug-and-play diffusion guidance that amplifies the tangential score component.">
-  <meta name="twitter:image" content="https://hyeon-cho.github.io/TAG/static/images/TAG.jpg">
+  <meta name="twitter:image" content="https://hyeon-cho.github.io/TAG/static/images/TAG_teaser_og.jpg">
 
   <meta name="citation_title"
     content="TAG: Tangential Amplifying Guidance for Hallucination-Resistant Sampling">
@@ -43,6 +45,7 @@
   <meta name="theme-color" content="#17357a">
 
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preload" as="image" href="static/images/TAG_teaser_web.jpg">
 
   <title>TAG: Tangential Amplifying Guidance | ICML 2026</title>
 
@@ -91,6 +94,140 @@
       margin: 1rem 0;
       border-radius: 4px;
       overflow-x: auto;
+    }
+
+    /* Full-width teaser wall (paper-at-a-glance card) */
+    .teaser-wall-section {
+      padding: 0.5rem 0 0.75rem;
+    }
+
+    .teaser-wall-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .teaser-wall {
+      position: relative;
+      margin: 0;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-xl);
+      cursor: zoom-in;
+      transition: var(--transition);
+      background: #fff;
+    }
+
+    .teaser-wall:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 26px 52px -14px rgba(23, 53, 122, 0.28);
+    }
+
+    .teaser-wall img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .teaser-wall-hint {
+      position: absolute;
+      right: 0.9rem;
+      bottom: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(15, 23, 42, 0.75);
+      color: #fff;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition);
+    }
+
+    .teaser-wall:hover .teaser-wall-hint,
+    .teaser-wall:focus-visible .teaser-wall-hint {
+      opacity: 1;
+    }
+
+    .teaser-wall-caption {
+      max-width: 900px;
+      margin: 0.9rem auto 0;
+      text-align: center;
+      font-size: 0.92rem;
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+      .teaser-wall-container {
+        padding: 0 0.75rem;
+      }
+
+      .teaser-wall {
+        border-radius: 8px;
+      }
+
+      .teaser-wall-hint {
+        opacity: 1;
+      }
+    }
+
+    /* Lightbox for the teaser wall */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(8, 12, 24, 0.93);
+      padding: 2.5rem 1rem 1.5rem;
+    }
+
+    .lightbox[hidden] {
+      display: none;
+    }
+
+    .lightbox img {
+      max-width: 96vw;
+      max-height: 90vh;
+      border-radius: 6px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 0.9rem;
+      right: 1.1rem;
+      background: none;
+      border: none;
+      color: #cbd5e1;
+      font-size: 2rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .lightbox-close:hover {
+      color: #fff;
+    }
+
+    .lightbox-full {
+      position: absolute;
+      top: 1.25rem;
+      left: 1.25rem;
+      color: #cbd5e1;
+      font-size: 0.85rem;
+      border: 1px solid rgba(203, 213, 225, 0.4);
+      border-radius: 999px;
+      padding: 0.3rem 0.9rem;
+    }
+
+    .lightbox-full:hover {
+      color: #fff;
+      border-color: #fff;
     }
 
     .teaser-row {
@@ -386,32 +523,19 @@
     </section>
 
     <!-- ============================== TEASER ============================== -->
-    <section class="hero teaser">
-      <div class="container is-max-desktop">
-        <div class="hero-body">
-          <div class="teaser-row">
-            <div class="teaser-item">
-              <img src="static/images/Base.jpg" alt="Without guidance, samples drift off the data manifold." />
-              <div class="teaser-label">(a) No Guidance</div>
-            </div>
-            <div class="teaser-item">
-              <img src="static/images/TAG.jpg"
-                alt="TAG decomposes the update into parallel and tangential parts and amplifies the tangential component." />
-              <div class="teaser-label">(b) TAG Update</div>
-            </div>
-            <div class="teaser-item">
-              <img src="static/images/3D.jpg" alt="Trajectory steered along the data manifold." />
-              <div class="teaser-label">(c) Trajectory on the manifold</div>
-            </div>
-          </div>
-          <p class="has-text-centered" style="margin-top: 1rem; color: #555; font-size: 0.95rem;">
-            Conceptual view of <strong>TAG</strong>. On the latent sphere, TAG splits the base increment
-            $\Delta_{k+1}$ into a <em>parallel</em> part $P_{\mathcal{M}}\Delta$ and an
-            <em>orthogonal (tangential)</em> part $P^{\perp}_{\mathcal{M}}\Delta$, then amplifies only
-            the tangential part — keeping the radial schedule intact while steering the trajectory
-            toward higher-density regions of the data manifold.
-          </p>
-        </div>
+    <section class="teaser-wall-section">
+      <div class="teaser-wall-container">
+        <figure class="teaser-wall" id="teaser-wall" role="button" tabindex="0"
+          aria-label="Open the full-resolution overview of TAG">
+          <img src="static/images/TAG_teaser_web.jpg" fetchpriority="high" decoding="async"
+            alt="Overview of TAG: trajectory geometry, tangential decomposition of the sampler update across timesteps, quantitative tables on COCO 2014 and T2I-CompBench, and qualitative comparisons across SD backbones, PAG/SEG stacks, and SV3D." />
+          <figcaption class="teaser-wall-hint"><i class="fas fa-search-plus"></i> Click to zoom</figcaption>
+        </figure>
+        <p class="teaser-wall-caption">
+          <strong>TAG at a glance</strong> — trajectory geometry, the tangential decomposition of the
+          sampler update $\Delta$ across timesteps, and results spanning unconditional / conditional
+          generation, plug-and-play stacks (PAG, SEG), video (SV3D), and hallucination benchmarks.
+        </p>
       </div>
     </section>
 
@@ -483,6 +607,31 @@
     <section class="section hero is-light section-tight">
       <div class="container is-max-desktop content">
         <h2 class="title is-3">How TAG Works</h2>
+
+        <div class="teaser-row" style="margin: 1.25rem 0 0.5rem;">
+          <div class="teaser-item">
+            <img src="static/images/Base.jpg" alt="Without guidance, samples drift off the data manifold."
+              loading="lazy" />
+            <div class="teaser-label">(a) No Guidance</div>
+          </div>
+          <div class="teaser-item">
+            <img src="static/images/TAG.jpg"
+              alt="TAG decomposes the update into parallel and tangential parts and amplifies the tangential component."
+              loading="lazy" />
+            <div class="teaser-label">(b) TAG Update</div>
+          </div>
+          <div class="teaser-item">
+            <img src="static/images/3D.jpg" alt="Trajectory steered along the data manifold." loading="lazy" />
+            <div class="teaser-label">(c) Trajectory on the manifold</div>
+          </div>
+        </div>
+        <p class="has-text-centered" style="margin: 0 0 2rem; color: #555; font-size: 0.95rem;">
+          Conceptual view of <strong>TAG</strong>. On the latent sphere, TAG splits the base increment
+          $\Delta_{k+1}$ into a <em>parallel</em> part $P_{\mathcal{M}}\Delta$ and an
+          <em>orthogonal (tangential)</em> part $P^{\perp}_{\mathcal{M}}\Delta$, then amplifies only
+          the tangential part — keeping the radial schedule intact while steering the trajectory
+          toward higher-density regions of the data manifold.
+        </p>
 
         <h4 class="title is-5">Step 1 — A base update from any sampler.</h4>
         <p>
@@ -812,6 +961,15 @@ url={https://openreview.net/forum?id=1XJqPy2LhA}
 
   </main>
 
+  <div class="lightbox" id="teaser-lightbox" hidden aria-modal="true" role="dialog"
+    aria-label="Full-resolution teaser">
+    <a class="lightbox-full" href="static/images/TAG_teaser_full.jpg" target="_blank" rel="noopener">
+      Open full resolution <i class="fas fa-external-link-alt"></i>
+    </a>
+    <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
+    <img data-src="static/images/TAG_teaser_full.jpg" alt="Full-resolution overview of TAG." />
+  </div>
+
   <footer class="footer">
     <div class="container">
       <div class="columns is-centered">
@@ -853,6 +1011,35 @@ url={https://openreview.net/forum?id=1XJqPy2LhA}
       if (!btn) return;
       btn.style.display = window.scrollY > 400 ? 'flex' : 'none';
     });
+
+    // Teaser lightbox
+    (function () {
+      const wall = document.getElementById('teaser-wall');
+      const box = document.getElementById('teaser-lightbox');
+      if (!wall || !box) return;
+      const img = box.querySelector('img');
+
+      function open() {
+        if (!img.src) img.src = img.dataset.src;   // load full-res lazily
+        box.hidden = false;
+        document.body.style.overflow = 'hidden';
+      }
+      function close() {
+        box.hidden = true;
+        document.body.style.overflow = '';
+      }
+
+      wall.addEventListener('click', open);
+      wall.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+      });
+      box.addEventListener('click', (e) => {
+        if (e.target === box || e.target.classList.contains('lightbox-close')) close();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !box.hidden) close();
+      });
+    })();
   </script>
 
 </body>
